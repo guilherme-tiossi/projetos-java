@@ -6,9 +6,16 @@ public class App {
             String input_user = scan_user.next();
         System.out.print("Senha: "); try (Scanner scan_senha = new Scanner(System.in)) {
             String input_senha = scan_senha.next();
+
         Login l = new Login();
-        l.logUser(input_user, input_senha);
-        
+        if(l.logUser(input_user, input_senha)){
+            Sistema s = new Sistema();
+            s.mostrarSistema();
+        }
+        else{
+            System.out.println("Credenciais inválidas.");
+        }
+
         }}
     }
 }
