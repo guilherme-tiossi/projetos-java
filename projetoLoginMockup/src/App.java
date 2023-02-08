@@ -1,11 +1,11 @@
-import java.util.Scanner;
+//import java.util.Scanner;
+import javax.swing.JOptionPane;
+
 public class App {
     public static void main(String[] args){
 
-        System.out.print("Login: "); try (Scanner scan_user = new Scanner(System.in)) {
-            String input_user = scan_user.next();
-        System.out.print("Senha: "); try (Scanner scan_senha = new Scanner(System.in)) {
-            String input_senha = scan_senha.next();
+        String input_user = JOptionPane.showInputDialog("Login:");
+        String input_senha = JOptionPane.showInputDialog("Senha:");
 
         Login l = new Login();
         if(l.logUser(input_user, input_senha)){
@@ -13,9 +13,7 @@ public class App {
             s.mostrarSistema();
         }
         else{
-            System.out.println("Credenciais inválidas.");
+            JOptionPane.showMessageDialog(null, "Credenciais Inválidas! Tente novamente");
         }
-
-        }}
     }
 }

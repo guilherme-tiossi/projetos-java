@@ -1,5 +1,9 @@
+import javax.swing.JOptionPane;
+
 public class Sistema {
     public void mostrarSistema(){
-        System.out.println("Sistema acessado!");
+        
+        JOptionPane.showMessageDialog(null, "Sistema acessado!");
+        
     }
 }
