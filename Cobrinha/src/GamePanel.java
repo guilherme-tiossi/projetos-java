@@ -6,11 +6,11 @@ import javax.swing.JPanel;
 
 public class GamePanel extends JPanel implements ActionListener {
 
-    static final int SCREEN_WIDTH = 600;
-    static final int SCREEN_HEIGHT = 600;
-    static final int UNIT_SIZE = 20;
+    static final int SCREEN_WIDTH = 450;
+    static final int SCREEN_HEIGHT = 450;
+    static final int UNIT_SIZE = 15;
     static final int GAME_UNITS = (SCREEN_WIDTH * SCREEN_HEIGHT)/UNIT_SIZE;
-    static final int DELAY = 30;
+    static final int DELAY = 40;
     final int x[] = new int[GAME_UNITS];
     final int y[] = new int[GAME_UNITS];
     int bodyParts = 5;
@@ -44,19 +44,30 @@ public class GamePanel extends JPanel implements ActionListener {
     }
 
     public void draw(Graphics g){
-        //desenhando maçã
-        g.setColor(Color.red);
-        g.fillRect(appleX, appleY, UNIT_SIZE, UNIT_SIZE);
+        if(running){
+            //desenhando pontos
+            g.setColor(Color.gray);
+            g.setFont(new Font("Comic Sans", Font.PLAIN, 35));
+            FontMetrics fm = getFontMetrics(g.getFont());
+            g.drawString("Pontos:" + Integer.toString(applesEaten), (SCREEN_WIDTH - fm.stringWidth(Integer.toString(applesEaten)))/3, SCREEN_HEIGHT/9);
 
-        for(int i = 0; i < bodyParts; i++){ //enquanto existir partes do corpo da cobrinha
-            if(i == 0){ //se é a cabeça da cobrinha
-                g.setColor(new Color(41, 146, 44));
-                g.fillRect(x[i], y[i], UNIT_SIZE, UNIT_SIZE); //desenha a cabeça com a cor da linha de cima
+            //desenhando maçã
+            g.setColor(Color.red);
+            g.fillRect(appleX, appleY, UNIT_SIZE, UNIT_SIZE);
+
+            for(int i = 0; i < bodyParts; i++){ //enquanto existir partes do corpo da cobrinha
+                if(i == 0){ //se é a cabeça da cobrinha
+                    g.setColor(new Color(41, 146, 44));
+                    g.fillRect(x[i], y[i], UNIT_SIZE, UNIT_SIZE); //desenha a cabeça com a cor da linha de cima
+                }
+                else{ // se é o corpo da cobrinha
+                    g.setColor(new Color(120, 188, 80));
+                    g.fillRect(x[i], y[i], UNIT_SIZE, UNIT_SIZE); //desenha o corpo com a cor da linha de cima
+                }
             }
-            else{ // se é o corpo da cobrinha
-                g.setColor(new Color(120, 188, 80));
-                g.fillRect(x[i], y[i], UNIT_SIZE, UNIT_SIZE); //desenha o corpo com a cor da linha de cima
-            }
+        }
+        else{
+            gameOver(g);
         }
     }
 
@@ -88,7 +99,11 @@ public class GamePanel extends JPanel implements ActionListener {
     }
 
     public void checkApple(){
-
+        if((x[0] == appleX) && (y[0] == appleY)){
+            newApple();
+            applesEaten++;
+            bodyParts ++;
+        }
     }
 
     public void checkCollisions(){
@@ -120,7 +135,16 @@ public class GamePanel extends JPanel implements ActionListener {
         }
     }
 
-    public void gameOver(){
+    public void gameOver(Graphics g){
+        g.setColor(Color.red);
+        g.setFont(new Font("Comic Sans", Font.BOLD, 50));
+        FontMetrics fm = getFontMetrics(g.getFont());
+        g.drawString("Fim de jogo!", (SCREEN_WIDTH - fm.stringWidth("Fim de jogo!"))/2, SCREEN_HEIGHT/2);
+        //desenhando pontos
+        g.setColor(Color.gray);
+        g.setFont(new Font("Comic Sans", Font.PLAIN, 35));
+        FontMetrics fm2 = getFontMetrics(g.getFont());
+        g.drawString("Pontos:" + Integer.toString(applesEaten), (SCREEN_WIDTH - fm2.stringWidth(Integer.toString(applesEaten)))/3, SCREEN_HEIGHT/9);
 
     }
 
