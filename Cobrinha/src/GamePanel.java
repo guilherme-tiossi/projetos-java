@@ -8,12 +8,12 @@ public class GamePanel extends JPanel implements ActionListener {
 
     static final int SCREEN_WIDTH = 450;
     static final int SCREEN_HEIGHT = 450;
-    static final int UNIT_SIZE = 15;
+    static final int UNIT_SIZE = 50;
     static final int GAME_UNITS = (SCREEN_WIDTH * SCREEN_HEIGHT)/UNIT_SIZE;
-    static final int DELAY = 40;
+    static final int DELAY = 100;
     final int x[] = new int[GAME_UNITS];
     final int y[] = new int[GAME_UNITS];
-    int bodyParts = 5;
+    int bodyParts = 6;
     int applesEaten;
     int appleX;
     int appleY;
@@ -136,16 +136,16 @@ public class GamePanel extends JPanel implements ActionListener {
     }
 
     public void gameOver(Graphics g){
+    //desenhando texto de fim de jogo
         g.setColor(Color.red);
         g.setFont(new Font("Comic Sans", Font.BOLD, 50));
         FontMetrics fm = getFontMetrics(g.getFont());
         g.drawString("Fim de jogo!", (SCREEN_WIDTH - fm.stringWidth("Fim de jogo!"))/2, SCREEN_HEIGHT/2);
-        //desenhando pontos
+    //desenhando pontos
         g.setColor(Color.gray);
         g.setFont(new Font("Comic Sans", Font.PLAIN, 35));
         FontMetrics fm2 = getFontMetrics(g.getFont());
         g.drawString("Pontos:" + Integer.toString(applesEaten), (SCREEN_WIDTH - fm2.stringWidth(Integer.toString(applesEaten)))/3, SCREEN_HEIGHT/9);
-
     }
 
     @Override
