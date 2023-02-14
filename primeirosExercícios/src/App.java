@@ -17,5 +17,6 @@ public class App {
                 System.out.print(caractere);
             }
         }
+        sc.close();
     }
 }
