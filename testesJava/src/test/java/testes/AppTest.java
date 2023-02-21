@@ -1,10 +1,10 @@
 package testes;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class AppTest 
 {
-    public void shouldAnswerWithTrue()
+    void shouldAnswerWithTrue()
     {
         assertTrue( true );
     }
