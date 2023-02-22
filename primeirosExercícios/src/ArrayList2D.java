@@ -18,17 +18,17 @@ public class ArrayList2D{
             aulasSemanais.add(aulasDia);
         }
 
-        for(int i = 0; i < 5; i++){
-            System.out.print(dias.get(i) + " | ");
+        for(String i : dias){
+            System.out.print(i + " | ");
         }
+        
         System.out.println("\b");
-        for(int j = 0; j < 6; j++){
-            System.out.print(aulasSemanais.get(0).get(j) + " | "); //pega o primeiro valor do dia J
-            System.out.print(aulasSemanais.get(1).get(j) + " | ");
-            System.out.print(aulasSemanais.get(2).get(j) + " | ");
-            System.out.print(aulasSemanais.get(3).get(j) + " | ");
-            System.out.print(aulasSemanais.get(4).get(j) + " | ");
-            System.out.println("\b");
+
+        for(int j = 0; j<6; j++){
+            for(ArrayList<String> i : aulasSemanais){
+                System.out.print(i.get(j) + " | "); //pega o primeiro valor do dia J
+            }
+        System.out.println("\b");
         }
         sc.close();
     }
