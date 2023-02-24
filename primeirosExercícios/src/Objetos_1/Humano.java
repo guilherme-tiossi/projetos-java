@@ -1,6 +1,5 @@
 package Objetos_1;
 
-
 public class Humano{
     String nome;
     int idade;
