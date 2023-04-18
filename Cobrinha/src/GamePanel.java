@@ -8,7 +8,7 @@ public class GamePanel extends JPanel implements ActionListener {
 
     static final int SCREEN_WIDTH = 450;
     static final int SCREEN_HEIGHT = 450;
-    static final int UNIT_SIZE = 50;
+    static final int UNIT_SIZE = 25;
     static final int GAME_UNITS = (SCREEN_WIDTH * SCREEN_HEIGHT)/UNIT_SIZE;
     static final int DELAY = 100;
     final int x[] = new int[GAME_UNITS];
@@ -65,7 +65,7 @@ public class GamePanel extends JPanel implements ActionListener {
                     g.fillRect(x[i], y[i], UNIT_SIZE, UNIT_SIZE); //desenha o corpo com a cor da linha de cima
                 }
             }
-        }
+        } 
         else{
             gameOver(g);
         }
