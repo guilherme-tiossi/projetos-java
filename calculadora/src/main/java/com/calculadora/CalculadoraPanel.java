@@ -4,7 +4,6 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import java.awt.*;
 import java.awt.event.*;
-import javax.swing.*;
 
 public class CalculadoraPanel extends JPanel implements ActionListener {
 
@@ -12,10 +11,14 @@ public class CalculadoraPanel extends JPanel implements ActionListener {
         this.setPreferredSize(new Dimension(350, 500));
         this.setFocusable(true);
         this.setLayout(null);
-
+        organizaLayout();
+    }
+    
+    public void organizaLayout(){
+        String conta;
         JPanel teclado = new JPanel();
         teclado.setLayout(null);
-        
+
         JButton um = new JButton("1", null);
         um.setPreferredSize(new Dimension(80, 60));
         JButton dois = new JButton("2", null);
@@ -84,12 +87,98 @@ public class CalculadoraPanel extends JPanel implements ActionListener {
         teclado.add(linhaTres);
         teclado.add(linhaQuatro);
         this.add(teclado);
+    
+        um.addActionListener(new java.awt.event.ActionListener(){
+            public void actionPerformed(java.awt.event.ActionEvent evt){
+                conta += "1";
+            }
+        });
+    
+        dois.addActionListener(new java.awt.event.ActionListener(){
+            public void actionPerformed(java.awt.event.ActionEvent evt){
+                System.out.println("teste");
+            }
+        });
+    
+        tres.addActionListener(new java.awt.event.ActionListener(){
+            public void actionPerformed(java.awt.event.ActionEvent evt){
+                System.out.println("teste");
+            }
+        });
+    
+        quatro.addActionListener(new java.awt.event.ActionListener(){
+            public void actionPerformed(java.awt.event.ActionEvent evt){
+                System.out.println("teste");
+            }
+        });
+    
+        cinco.addActionListener(new java.awt.event.ActionListener(){
+            public void actionPerformed(java.awt.event.ActionEvent evt){
+                System.out.println("teste");
+            }
+        });
+    
+        seis.addActionListener(new java.awt.event.ActionListener(){
+            public void actionPerformed(java.awt.event.ActionEvent evt){
+                System.out.println("teste");
+            }
+        });
+    
+        sete.addActionListener(new java.awt.event.ActionListener(){
+            public void actionPerformed(java.awt.event.ActionEvent evt){
+                System.out.println("teste");
+            }
+        });
+    
+        oito.addActionListener(new java.awt.event.ActionListener(){
+            public void actionPerformed(java.awt.event.ActionEvent evt){
+                System.out.println("teste");
+            }
+        });
+    
+        nove.addActionListener(new java.awt.event.ActionListener(){
+            public void actionPerformed(java.awt.event.ActionEvent evt){
+                System.out.println("teste");
+            }
+        });
+    
+        zero.addActionListener(new java.awt.event.ActionListener(){
+            public void actionPerformed(java.awt.event.ActionEvent evt){
+                System.out.println("teste");
+            }
+        });
+    
+        mais.addActionListener(new java.awt.event.ActionListener(){
+            public void actionPerformed(java.awt.event.ActionEvent evt){
+                System.out.println("teste");
+            }
+        });
+    
+        menos.addActionListener(new java.awt.event.ActionListener(){
+            public void actionPerformed(java.awt.event.ActionEvent evt){
+                System.out.println("teste");
+            }
+        });
+    
+        div.addActionListener(new java.awt.event.ActionListener(){
+            public void actionPerformed(java.awt.event.ActionEvent evt){
+                System.out.println("teste");
+            }
+        });
+        
+        mult.addActionListener(new java.awt.event.ActionListener(){
+            public void actionPerformed(java.awt.event.ActionEvent evt){
+                System.out.println("teste");
+            }
+        });
+        
+
     }
+
 
     @Override
     public void actionPerformed(ActionEvent arg0) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
     }
-
 }
