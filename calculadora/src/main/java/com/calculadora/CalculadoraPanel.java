@@ -6,6 +6,9 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class CalculadoraPanel extends JPanel implements ActionListener {
+    
+    private String conta = "";
+    private Calculadora calculadora = new Calculadora();
 
     CalculadoraPanel(){ //construtor panel
         this.setPreferredSize(new Dimension(350, 500));
@@ -15,7 +18,6 @@ public class CalculadoraPanel extends JPanel implements ActionListener {
     }
     
     public void organizaLayout(){
-        String conta;
         JPanel teclado = new JPanel();
         teclado.setLayout(null);
 
@@ -90,91 +92,94 @@ public class CalculadoraPanel extends JPanel implements ActionListener {
     
         um.addActionListener(new java.awt.event.ActionListener(){
             public void actionPerformed(java.awt.event.ActionEvent evt){
-                conta += "1";
+                conta = conta + "1";
             }
         });
     
         dois.addActionListener(new java.awt.event.ActionListener(){
             public void actionPerformed(java.awt.event.ActionEvent evt){
-                System.out.println("teste");
+                conta = conta + "2";
             }
         });
     
         tres.addActionListener(new java.awt.event.ActionListener(){
             public void actionPerformed(java.awt.event.ActionEvent evt){
-                System.out.println("teste");
+                conta = conta + "3";
             }
         });
     
         quatro.addActionListener(new java.awt.event.ActionListener(){
             public void actionPerformed(java.awt.event.ActionEvent evt){
-                System.out.println("teste");
+                conta = conta + "4";
             }
         });
     
         cinco.addActionListener(new java.awt.event.ActionListener(){
             public void actionPerformed(java.awt.event.ActionEvent evt){
-                System.out.println("teste");
+                conta = conta + "5";
             }
         });
     
         seis.addActionListener(new java.awt.event.ActionListener(){
             public void actionPerformed(java.awt.event.ActionEvent evt){
-                System.out.println("teste");
+                conta = conta + "6";
             }
         });
     
         sete.addActionListener(new java.awt.event.ActionListener(){
             public void actionPerformed(java.awt.event.ActionEvent evt){
-                System.out.println("teste");
+                conta = conta + "7";
             }
         });
     
         oito.addActionListener(new java.awt.event.ActionListener(){
             public void actionPerformed(java.awt.event.ActionEvent evt){
-                System.out.println("teste");
+                conta = conta + "8";
             }
         });
     
         nove.addActionListener(new java.awt.event.ActionListener(){
             public void actionPerformed(java.awt.event.ActionEvent evt){
-                System.out.println("teste");
+                conta = conta + "9";
             }
         });
     
         zero.addActionListener(new java.awt.event.ActionListener(){
             public void actionPerformed(java.awt.event.ActionEvent evt){
-                System.out.println("teste");
+                conta = conta + "0";
             }
         });
     
         mais.addActionListener(new java.awt.event.ActionListener(){
             public void actionPerformed(java.awt.event.ActionEvent evt){
-                System.out.println("teste");
+                conta = conta + "x+x";
             }
         });
     
         menos.addActionListener(new java.awt.event.ActionListener(){
             public void actionPerformed(java.awt.event.ActionEvent evt){
-                System.out.println("teste");
+                conta = conta + "x-x";
             }
         });
     
         div.addActionListener(new java.awt.event.ActionListener(){
             public void actionPerformed(java.awt.event.ActionEvent evt){
-                System.out.println("teste");
+                conta = conta + "x/x";
             }
         });
         
         mult.addActionListener(new java.awt.event.ActionListener(){
             public void actionPerformed(java.awt.event.ActionEvent evt){
-                System.out.println("teste");
+                conta = conta + "x*x";
             }
         });
-        
 
+        igual.addActionListener(new java.awt.event.ActionListener(){
+            public void actionPerformed(java.awt.event.ActionEvent evt){
+                calculadora.processarString(conta);
+            }
+        });
     }
-
 
     @Override
     public void actionPerformed(ActionEvent arg0) {
