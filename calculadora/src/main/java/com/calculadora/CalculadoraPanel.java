@@ -26,7 +26,7 @@ public class CalculadoraPanel extends JPanel implements ActionListener {
         gbc.weighty = 1.0;
         gbc.fill = GridBagConstraints.BOTH;
         add(mais, gbc);
-
+        
         JButton menos = new JButton("-", null);
         GridBagConstraints gbc2 = new GridBagConstraints();
         gbc2.gridwidth = 1;
