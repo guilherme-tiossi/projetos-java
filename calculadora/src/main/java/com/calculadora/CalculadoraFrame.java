@@ -12,6 +12,6 @@ public class CalculadoraFrame extends JFrame
         this.pack();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
-
+        this.setSize(300, 500);
     }
 }
