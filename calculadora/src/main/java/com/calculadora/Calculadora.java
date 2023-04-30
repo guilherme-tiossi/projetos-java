@@ -1,64 +1,74 @@
 package com.calculadora;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Calculadora {
 
-    private String[] conta;
+    private ArrayList<String> conta = new ArrayList<String>();
     private int resultado;
 
-    public void processarString(String contaBruta) {
-        conta = contaBruta.split("x");
+    public void iniciaCalculo(String contaBruta) {
+        conta = new ArrayList<String>(Arrays.asList(contaBruta.split("x")));
+        calculaMultDiv();
+        calculaSomSub();
+        System.out.println("resultado final = " + resultado);
+        contaBruta = "";
+    }
+
+    public void calculaMultDiv(){
 
         int i = 0;
-        for (String a : conta) {
-            switch (a) {
+        ArrayList<Integer> listaMultiplicacao = new ArrayList<Integer>();
+        ArrayList<Integer> listaDivisao = new ArrayList<Integer>();
+        for (String c : conta) {
+            switch(c){
+                case "*":
+                    listaMultiplicacao.add(i);
+                    break;
+                case "/":
+                    listaDivisao.add(i);
+            }
+            i++;
+        }
+
+        int j = 0;
+        for (Integer m : listaMultiplicacao){
+            resultado = Integer.parseInt(conta.get(m-1-j)) * Integer.parseInt(conta.get(m+1-j));
+            conta.set(m-1-j, "" + resultado);
+            conta.remove(m-j);
+            conta.remove(m-j);
+            j = j + 2;
+        }
+
+        for (Integer d : listaDivisao){
+            resultado = Integer.parseInt(conta.get(d-1-j)) / Integer.parseInt(conta.get(d+1-j));
+            conta.set(d-1-j, "" + resultado);
+            conta.remove(d-j);
+            conta.remove(d-j);
+            j = j + 2;
+         }
+    }
+
+    public void calculaSomSub(){
+        int i = 0;
+        for (String c : conta) {
+            switch (c) {
                 case "+":
-                    resultado = Integer.parseInt(conta[i - 1]) + Integer.parseInt(conta[i + 1]);
-                    // System.out.println(Integer.parseInt(conta[i - 1]) + "+" +
-                    // Integer.parseInt(conta[i + 1]));
+                    resultado = Integer.parseInt(conta.get(i - 1)) + Integer.parseInt(conta.get(i + 1));
                     break;
 
                 case "-":
-                    resultado = Integer.parseInt(conta[i - 1]) - Integer.parseInt(conta[i + 1]);
-                    System.out.println(Integer.parseInt(conta[i - 1]) + "-" + Integer.parseInt(conta[i + 1]));
-                    break;
-
-                case "*":
-                    resultado = Integer.parseInt(conta[i - 1]) * Integer.parseInt(conta[i + 1]);
-                    System.out.println(Integer.parseInt(conta[i - 1]) + "*" + Integer.parseInt(conta[i + 1]));
-                    break;
-
-                case "/":
-                    resultado = Integer.parseInt(conta[i - 1]) / Integer.parseInt(conta[i + 1]);
-                    System.out.println(Integer.parseInt(conta[i - 1]) + "/" + Integer.parseInt(conta[i + 1]));
+                    resultado = Integer.parseInt(conta.get(i - 1)) - Integer.parseInt(conta.get(i + 1));
                     break;
 
                 default:
-                    ajustarArray(conta, i);
+                    if (i > 1) {
+                        conta.set(i, "" + resultado);
+                    }
                     break;
 
             }
             i++;
-        }
-        System.out.println(resultado);
-        contaBruta = "";
-    }
-
-    public void ajustarArray(String[] conta, int i) {
-        if (i > 1) {
-            switch (conta[i - 1]) {
-                case "+":
-                    conta[i] = "" + (Integer.parseInt(conta[i]) + Integer.parseInt(conta[i - 2]));
-                break;
-                case "-":
-                    conta[i] = "" + (Integer.parseInt(conta[i-2]) - Integer.parseInt(conta[i]));
-                break;
-                case "*":
-                    conta[i] = "" + (Integer.parseInt(conta[i]) * Integer.parseInt(conta[i - 2]));
-                break;
-                case "/":
-                    conta[i] = "" + (Integer.parseInt(conta[i]) / Integer.parseInt(conta[i - 2]));
-                break;
-            }
         }
     }
 }

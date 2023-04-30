@@ -176,7 +176,7 @@ public class CalculadoraPanel extends JPanel implements ActionListener {
 
         igual.addActionListener(new java.awt.event.ActionListener(){
             public void actionPerformed(java.awt.event.ActionEvent evt){
-                calculadora.processarString(conta);
+                calculadora.iniciaCalculo(conta);
             }
         });
     }
