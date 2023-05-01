@@ -163,15 +163,6 @@ public class CalculadoraPanel extends JPanel implements ActionListener {
         gbc16.weighty = 1.0;
         gbc16.fill = GridBagConstraints.BOTH;
         add(ponto, gbc16);
-
-        JButton porcentagem = new JButton("%", null);
-        GridBagConstraints gbc17 = new GridBagConstraints();
-        gbc17.gridwidth = 1;
-        gbc17.gridheight = 1;
-        gbc17.weightx = 1.0;
-        gbc17.weighty = 1.0;
-        gbc17.fill = GridBagConstraints.BOTH;
-        add(porcentagem, gbc17);
         
         JButton zero = new JButton("0", null);
         GridBagConstraints gbc18 = new GridBagConstraints();
@@ -184,9 +175,9 @@ public class CalculadoraPanel extends JPanel implements ActionListener {
 
         JButton igual = new JButton("=", null);
         GridBagConstraints gbc19 = new GridBagConstraints();
-        gbc19.gridwidth = 2;
+        gbc19.gridwidth = 3;
         gbc19.gridheight = 1;
-        gbc19.weightx = 2.0;
+        gbc19.weightx = 3.0;
         gbc19.weighty = 1.0;
         gbc19.fill = GridBagConstraints.BOTH;
         add(igual, gbc19);
@@ -251,6 +242,24 @@ public class CalculadoraPanel extends JPanel implements ActionListener {
             }
         });
 
+        ponto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                conta = conta + ".";
+            }
+        });
+
+        ac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                conta = "";
+            }
+        });
+
+        backspace.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                conta = conta.substring(0, conta.length() - 1);
+            }
+        });
+
         mais.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 conta = conta + "x+x";
@@ -310,7 +319,6 @@ public class CalculadoraPanel extends JPanel implements ActionListener {
         this.add(new JButton(""));
         this.add(new JButton("."));
         this.add(new JButton("0"));
-        this.add(new JButton("%"));
         JButton igual = new JButton("igual");
 
         igual.setSize(igual.getWidth(), igual.getHeight() * 2);

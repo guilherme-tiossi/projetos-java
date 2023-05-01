@@ -8,7 +8,7 @@ public class Calculadora {
     private double resultado;
 
     public void iniciaCalculo(String contaBruta) {
-        contaBruta = "4x+x3x*x7x-x2x+x89x/x3x*x46x-x3";
+        // contaBruta = "4x+x3x*x7x-x2x+x89x/x3x*x46x-x3";
         conta = new ArrayList<String>(Arrays.asList(contaBruta.split("x")));
         System.out.println("conta pré MD: " + conta);
         processaMultDiv();
@@ -68,66 +68,6 @@ public class Calculadora {
             k++;
         }
     }
-    
-    // public void calculaMultDiv2(){
-    //     int i = 0;
-    //     int j = 0;
-    //     for (String c : conta) {
-    //         switch(c){
-    //             case "*":
-    //                 resultado = Double.parseDouble(conta.get(i-1-j)) * Double.parseDouble(conta.get(i+1-j));
-    //                 conta.set(i-1-j, "" + resultado);
-    //                 conta.remove(i-j);
-    //                 conta.remove(i-j);
-    //                 j = j + 2;
-    //             break;
-    //             case "/":
-    //                 resultado = Double.parseDouble(conta.get(i-1-j)) / Double.parseDouble(conta.get(i+1-j));
-    //                 conta.set(i-1-j, "" + resultado);
-    //                 conta.remove(i-j);
-    //                 conta.remove(i-j);
-    //                 j = j + 2;
-    //             break;
-    //         }
-    //         i++;
-    //     }
-    // }
-
-    // public void calculaMultDiv1(){
-    //     System.out.println(conta);
-    //     int i = 0;
-    //     ArrayList<Integer> listaMultiplicacao = new ArrayList<Integer>();
-    //     ArrayList<Integer> listaDivisao = new ArrayList<Integer>();
-    //     for (String c : conta) {
-    //         switch(c){
-    //             case "*":
-    //                 listaMultiplicacao.add(i);
-    //             break;
-    //             case "/":
-    //                 listaDivisao.add(i);
-    //         }
-            
-    //         i++;
-    //     }
-    //     System.out.println(listaDivisao);
-    //     System.out.println(listaMultiplicacao);
-    //     int j = 0;
-    //     for (Integer m : listaMultiplicacao){
-    //         resultado = Double.parseDouble(conta.get(m-1-j)) * Double.parseDouble(conta.get(m+1-j));
-    //         conta.set(m-1-j, "" + resultado);
-    //         conta.remove(m-j);
-    //         conta.remove(m-j);
-    //         j = j + 2;
-    //     }
-
-    //     for (Integer d : listaDivisao){
-    //         resultado = Double.parseDouble(conta.get(d-1-j)) / Double.parseDouble(conta.get(d+1-j));
-    //         conta.set(d-1-j, "" + resultado);
-    //         conta.remove(d-j);
-    //         conta.remove(d-j);
-    //         j = j + 2;
-    //      }
-    // }
 
     public void processaSomSub(){
         int i = 0;
