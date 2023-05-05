@@ -17,9 +17,9 @@ public class CalculadoraPanel extends JPanel implements ActionListener {
     }
 
     public void organizaLayout() {
-        GridBagConstraints gbc = new GridBagConstraints();
 
         JButton mais = new JButton("+", null);
+        GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridwidth = 1;
         gbc.gridheight = 1;
         gbc.weightx = 1.0;

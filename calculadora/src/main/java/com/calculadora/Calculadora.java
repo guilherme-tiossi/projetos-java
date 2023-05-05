@@ -8,11 +8,8 @@ public class Calculadora {
     private double resultado;
 
     public void iniciaCalculo(String contaBruta) {
-        // contaBruta = "4x+x3x*x7x-x2x+x89x/x3x*x46x-x3";
         conta = new ArrayList<String>(Arrays.asList(contaBruta.split("x")));
-        System.out.println("conta pré MD: " + conta);
         processaMultDiv();
-        System.out.println("conta pré SS: " + conta);
         processaSomSub();
         System.out.println("resultado final = " + resultado);
         contaBruta = "";
